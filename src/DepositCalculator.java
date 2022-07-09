@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 public class DepositCalculator {
-    int places = 2;
+    int places = 2; // по-моему круто, что вынес в отдельную переменную
 
     double calculateComplexPercent(double amount, double yearRate, int depositPeriod) {
         double pay = amount * Math.pow((1 + yearRate / 12), 12 * depositPeriod);
@@ -18,10 +18,10 @@ public class DepositCalculator {
         return Math.round(value * ScaLe) / ScaLe;
     }
 
-    void calculation() {
+    void calculation() { //Может написать calculateDeposit
         int period;
         int action;
-        double yearRate = 0.06;
+        double yearRate = 0.06; // Если не меняется нигде, может в константе сохранить final
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите сумму вклада в рублях:");
@@ -36,7 +36,7 @@ public class DepositCalculator {
 
         action = scanner.nextInt();
 
-        double money = 0;
+        double money = 0; //да, более понятное название переменной
 
         if (action == 1) money = calculateSimplePercent(amount, yearRate, period);
         else if (action == 2) {
@@ -47,5 +47,5 @@ public class DepositCalculator {
 
     public static void main(String[] args) {
         new DepositCalculator().calculation();
-    }
+    } // может после { сделать перенос на другую строку
 }
