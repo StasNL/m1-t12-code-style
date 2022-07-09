@@ -1,14 +1,16 @@
 import java.util.Scanner;
 
+
 public class DepositCalculator {
     int places = 2;
-    double calculateComplexPercent (double amount, double yearRate, int depositPeriod) {
+
+    double calculateComplexPercent(double amount, double yearRate, int depositPeriod) {
         double pay = amount * Math.pow((1 + yearRate / 12), 12 * depositPeriod);
         return round(pay, places);
     }
 
-    double calculateSimplePercent (double doubleAmount, double yearRate, int depositPeriod) {
-        return round(doubleAmount + doubleAmount * yearRate * depositPeriod, places);
+    double calculateSimplePercent(double amount, double yearRate, int depositPeriod) {
+        return round(amount * yearRate * depositPeriod, places);
     }
 
     double round(double value, int places) {
@@ -46,6 +48,4 @@ public class DepositCalculator {
     public static void main(String[] args) {
         new DepositCalculator().calculation();
     }
-
-
 }
